@@ -1,54 +1,46 @@
-// initialization file for application
-// calls all the functions here 
+console.log('Starting app.js');
 
-// to keep track of how our files are executing 
-console.log('starting app.js');
-
-// load in built in modules - fs.appendFile
-// const is var to put in the require data 
-// 'fs' -  get all of the contents of the fs module and store in fs variable  
 const fs = require('fs');
-
-// get system info - user info 
-const os = require('os');
-
-// load in own files by using a relative path 
-// start from the root which is the project file then make path accordingly 
+const _ = require('lodash');
+const yargs = require('yargs');
 const notes = require('./notes.js');
 
-// loading lodash moduel into project 
-// pass in the name exactly as it appears in the json file 
-const _ = require('lodash');
+// yargs.arv is where the library stores its version of the arguments 
+const argv = yargs.argv;
 
-// var user = os.userInfo();
+// a log to keep track of how the app is getting executed 
+var command = process.argv[2];
+console.log('Command: ', command);
 
-// Two arguments: file name, text to append to the file 
-// user.username comes form the os.userInfo() 
-// fs.appendFile('greetuser.txt', 'Hello ' + user.username + ' !');
+// using yargs
+console.log('Process', process.argv);
+console.log('Yargs', argv);
 
-// using template string - es6 feature 
-// fs.appendFile('greetingtemplatestring.txt', `Hello ${user.username}!`);
+// getting specific infor for the commands 
+// console.log(process.argv);
 
-// output: a new file wil be created in the project folder
+// all the command line arguments 
+//console.log(process.argv);
 
-// age is comming from the notes require 
-// fs.appendFile('greetingswithage.txt', `Hello ${user.username}! You are ${notes.age}.`);
+// process of adding a new note
+// conditionals are based on what you typed on the cmd 
+// SUPPORT FOR VARIOUS COMMANDS 
+if (command === 'add') {
+    console.log('Adding new note');
+} else if (command === 'list') {
+    console.log('Listing all notes');
+} else if (command === 'read') {
+    console.log('Reading note');
+} else if (command === 'remove') {
+    console.log('Removing note');
+} else {
+    console.log('Command not recongized');
+}
 
-// calling the notes function in the notes.js
-//var res = notes.addNote();
-// prints new note 
-//console.log(res);
-
-// calling add function
-//var sum = notes.add(3, 5);
-//console.log('Results: ' + sum);
-//
-//console.log('Results: ', notes.add(4, 5));
-
-// lodash - isString method 
-//console.log(_.isString(true)); // return false 
-//console.log(_.isString('Enrico')); // return true
-
-// lodash - uniq(array)
-var filterArray = _.uniq(['Enrico', 1, 'Enrico', 1, 2, 3, 4]); // output: array with no duplicates 
-console.log(filterArray);
+/*
+    ex. 
+    node app.js add
+    output: Command: add
+            Adding new note 
+    
+*/
