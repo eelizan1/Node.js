@@ -1,0 +1,24 @@
+npm install yargs@4.7.1 --save 
+
+const yargs = require('yargs');
+
+// yargs.arv is where the library stores its version of the arguments 
+const argv = yargs.argv;
+
+// using yargs
+console.log('Process', process.argv);
+console.log('Yargs', argv);
+
+What yarg looks like when you run in cmd 
+	node app.js add file 
+	Yargs{_: ['add', 'file'], '$0': 'app.js'}
+	
+	You can see that file is the second argument which is cleaner than standard node 
+
+Really shines using key value pairs 
+	node app.js add --title=secrets
+	
+	Yargs{_: ['add'], title: 'secrets', '$0': 'app.js'}
+	
+	title: 'secrets' is now a key value pair. no parsing is needed 
+

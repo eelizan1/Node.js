@@ -1,0 +1,40 @@
+You can now use command line arguments 
+
+node app.js list
+	adds a new argument 'list' 
+	can display arguments using the process.argv 
+	
+	if (command === 'add') {
+    console.log('Adding new note');
+	} else if (command === 'list') {
+		console.log('Listing all notes');
+	} else if (command === 'read') {
+		console.log('Reading note');
+	} else if (command === 'remove') {
+		console.log('Removing note');
+	} else {
+		console.log('Command not recognized');
+	}
+
+	/*
+
+		node app.js add
+		output: Command: add
+				Adding new note 
+	*/
+	
+	PURPOSE: Provide support for various commands 
+	
+	ex if we want to remove a list title  
+	in cmd type: 
+		node app.js remove --title=secrets 
+		// passing the title, secrets as an argument 
+		// note if quotes, use double quotes: --title="secrets 2"
+		
+	This way is difficult with parsing so new module, yargs will be used 
+
+Yargs - 3rd party module to make the process of parsing much easier 
+
+	
+	
+	

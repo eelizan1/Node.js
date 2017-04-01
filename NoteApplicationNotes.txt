@@ -1,0 +1,66 @@
+Using Require 
+
+
+Modules - units of functionality 
+
+require - 
+	let us load modules
+	load in 3rd party libraries (express)
+	require our own files, break up files 
+	
+Make directory for all these files 
+	
+require built in modules: nodejs.org/api/
+
+1. fs.appendFile(file, data[, options], callback)
+	file - file name
+	data - data we append to the file 
+2. os.type()
+	Returns the OS name 
+	
+exports: {}
+	An object on the module property 
+	exports is a variable that lives on module.exports . It's basically what you export when a file is required.
+
+npm init - prompt you for your project 
+
+	creates a json file - description of your projects 
+	package.json defined 3rd party that we want to install in our application 
+	
+New Module: lodash
+
+	Use lodash for sorting, checking, lastIndexby etc. normal functions to perform 
+	
+	install: npm install lodash --save
+	the --save will update the contents of the json file which means you can delete the nodes modules folder completey 
+	
+	Every time you install a module, a node module folder will appear in the project file 
+	
+	After installation you can now require the module into the project 
+	
+	Lodash Documentation: 
+		lodash.com/docs 
+		
+		ex. _.isString 
+				checks if value is classified as a string or object 
+				
+			_.uniq(array)
+				Creates a duplicate free version of an array, using SameValueZero for equality comparisons 
+				Removes any duplicates of an array 
+				
+				
+nodemon - A nodule to automatically restarting the app as we make changes to the file 
+		good for local dev 
+	install: 
+		npm install nodemon -g
+		use -g for global so you can execute anywhere from you machine 
+		
+	execute: 
+		nodemon app.js 
+		now you can make changes on the fly when you save the file. 
+		new output is shown to the string 
+		
+	shutdown: 
+		ctrl + c
+		
+		

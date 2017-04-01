@@ -9,11 +9,13 @@ const notes = require('./notes.js');
 const argv = yargs.argv;
 
 // a log to keep track of how the app is getting executed 
-var command = process.argv[2];
+// variation --> var command = process.argv[2];
+// grabs the first command - first argument in the array 
+var command = argv._[0];
 console.log('Command: ', command);
 
 // using yargs
-console.log('Process', process.argv);
+// console.log('Process', process.argv);
 console.log('Yargs', argv);
 
 // getting specific infor for the commands 
@@ -26,13 +28,17 @@ console.log('Yargs', argv);
 // conditionals are based on what you typed on the cmd 
 // SUPPORT FOR VARIOUS COMMANDS 
 if (command === 'add') {
-    console.log('Adding new note');
+    // when user sepcifies 'add' in the command line 
+    // add title and body in the arguments 
+    // argv comes from yargs.argv 
+    notes.addNote(argv.title, argv.body);
 } else if (command === 'list') {
-    console.log('Listing all notes');
+    // return all of the notes regardless of the title 
+    notes.getAll();
 } else if (command === 'read') {
-    console.log('Reading note');
+    notes.getNote(argv.title);
 } else if (command === 'remove') {
-    console.log('Removing note');
+    notes.removeNote(argv.title);
 } else {
     console.log('Command not recongized');
 }
